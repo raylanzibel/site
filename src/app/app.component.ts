@@ -27,21 +27,21 @@ export class AppComponent {
 
   constructor(private fazerContatoService: FazerContatoService){}
 
-  public fazerContato(){    
+  public fazerContato(){
     this.oFormContato = {
-      nome: this.nomeContato
-    , email: this.emailContato
-    , telefone: this.foneContato
-    , mensagem: this.mensagemContato
+        nome: this.nomeContato
+      , email: this.emailContato
+      , telefone: this.foneContato
+      , mensagem: this.mensagemContato
     };
-    this.limpaCampos();
     this.fazerContatoService.enviarEmail(this.oFormContato);
     this.msgFezContato = 'Mensagem enviada com Sucesso !!';
     this.classFezContato = 'alert alert-success';
-    this.apagaInfo(5);    
+    this.limpaCampos();
+    this.apagaInfo(5); 
   }
 
-  private apagaInfo(segundos: number){
+  public apagaInfo(segundos: number){
     setTimeout(() => {
       this.msgFezContato = '';
       this.classFezContato = '';

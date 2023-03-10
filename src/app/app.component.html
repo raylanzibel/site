@@ -16,28 +16,31 @@
     <h1 class="cover-heading">SOFTWARES QUE FUNCIONAM E RESOLVEM PROBLEMAS</h1>
     <br>
     <div class="lead">
-      <form>
+      <form autocomplete="off">
         <div class="form-group">
           <label for="nomeContato">Nome</label>
           <input type="text" class="form-control" id="nomeContato" aria-describedby="nomeContato" placeholder="Informe o Nome"
-          [(ngModel)]="nomeContato" name="nomeContato"
-          (ngModelChange)="limpaCampos()">
+          [(ngModel)]="nomeContato" name="nomeContato" 
+          (ngModelChange)="apagaInfo(0)">
         </div>
         <div class="form-group">
           <label for="emailContato">E-Mail</label>
           <input type="text" class="form-control" id="emailContato" aria-describedby="emailContato" placeholder="Informe o E-Mail"
-          [(ngModel)]="emailContato" name="emailContato">
+          [(ngModel)]="emailContato" name="emailContato" 
+          (ngModelChange)="apagaInfo(0)">
         </div>
         <div class="form-group">
           <label for="foneContato">Telefone</label>
           <input type="text" class="form-control" id="foneContato" aria-describedby="foneContato" placeholder="Informe o Telefone"
-          [(ngModel)]="foneContato" name="foneContato">
+          [(ngModel)]="foneContato" name="foneContato" 
+          (ngModelChange)="apagaInfo(0)">
         </div>
         <div class="form-group">
           <label for="mensagemContato">Mensagem</label>
-          <textarea class="form-control" [(ngModel)]="mensagemContato" name="mensagemContato" id="mensagemContato" aria-describedby="mensagemContato" placeholder="Informe a Mensagem"  rows="3"></textarea>
+          <textarea class="form-control" [(ngModel)]="mensagemContato" name="mensagemContato" id="mensagemContato" aria-describedby="mensagemContato" placeholder="Informe a Mensagem"  rows="3" 
+          (ngModelChange)="apagaInfo(0)"></textarea>
         </div>
-        <div class="btn btn-primary" (click)="fazerContato()">Enviar</div>
+        <div class="btn btn-primary" (click)="fazerContato();">Enviar</div>
       </form>
       <h3 class="">contato@zibeltecnologia.com.br</h3>
       <div class="{{ classFezContato }}">{{ msgFezContato }}</div>
