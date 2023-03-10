@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { FazerContatoService } from 'src/app/fazer-contato.service';
+import { FazerContatoService } from 'src/app/services/fazer-contato.service';
 import { iFormContato } from 'src/interfaces/iFormContato';
 
 @Component({
