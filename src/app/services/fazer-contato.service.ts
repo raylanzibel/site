@@ -8,15 +8,24 @@ import { iFormContato } from 'src/interfaces/iFormContato';
 })
 export class FazerContatoService {
   private sApiUrl: string = "http://localhost:8080/api/sendmail";
-  private oEMail: iEMail = {MailFrom: "", MailBody: ""};
+  private oEMail: iEMail = {
+      MailFrom: ""
+    , MailBody: ""
+  };
 
-  constructor(private httpCli: HttpClient) { }
+  constructor(private httpCli: HttpClient) {
+    // objeto injetado
+  }
 
   enviarEmail(oFormContato: iFormContato) {
     this.oEMail.MailFrom    = oFormContato.email;
     this.oEMail.MailBody    = `${oFormContato.nome}\n${oFormContato.email}\n${oFormContato.telefone}\n${oFormContato.mensagem}`;
-    console.log(JSON.stringify(this.oEMail));
-    const httpOptions = {headers: new HttpHeaders({'Content-Type':  'application/json'})};
+    const httpOptions = {
+      headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        }
+      )
+    };
     this.httpCli.post<iEMail>(this.sApiUrl, JSON.stringify(this.oEMail), httpOptions).subscribe();
   }
 }

@@ -25,7 +25,9 @@ export class AppComponent {
   foneContato: string = "";
   mensagemContato: string = "";
 
-  constructor(private fazerContatoService: FazerContatoService){}
+  constructor(private fazerContatoService: FazerContatoService){
+    // serviço injetado
+  }
 
   public fazerContato(){
     this.oFormContato = {
@@ -35,13 +37,14 @@ export class AppComponent {
       , mensagem: this.mensagemContato
     };
     this.fazerContatoService.enviarEmail(this.oFormContato);
-    this.msgFezContato = 'Mensagem enviada com Sucesso !!';
+    this.msgFezContato = 'Mensagem enviada com Sucesso !! Você deverá receber uma cópia.';
     this.classFezContato = 'alert alert-success';
     this.limpaCampos();
     this.apagaInfo(5); 
   }
 
   public apagaInfo(segundos: number){
+    // para remover a div de informação
     setTimeout(() => {
       this.msgFezContato = '';
       this.classFezContato = '';
@@ -50,6 +53,7 @@ export class AppComponent {
   }
 
   public limpaCampos(){
+    // nao fiz reset no form, fiz manual
     this.nomeContato = "";
     this.emailContato = "";
     this.foneContato = "";
